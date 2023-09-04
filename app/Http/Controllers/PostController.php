@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,7 +14,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        return 'test';
+        $post = new Post();
+        $post->title = 'Заголовок';
+        // $post->content = 'Lorem input ...';
+        $post->save();
+
+        return view('posts', ['test' => 12]);
     }
 
     /**
